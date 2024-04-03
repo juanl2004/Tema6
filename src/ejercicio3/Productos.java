@@ -1,4 +1,4 @@
-package Ejercicio3;
+package ejercicio3;
 
 /**
  * La clase Productos representa un producto con nombre y precio.

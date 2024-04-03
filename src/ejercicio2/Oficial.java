@@ -1,4 +1,4 @@
-package Ejercicio2;
+package ejercicio2;
 
 /**
  * La clase Oficial representa a un oficial, que es un tipo de operario.

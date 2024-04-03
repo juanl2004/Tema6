@@ -1,4 +1,4 @@
-package Ejercicio2;
+package ejercicio2;
 
 /**
  * La clase Empleado representa a un empleado con un nombre.

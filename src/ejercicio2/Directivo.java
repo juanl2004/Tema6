@@ -1,4 +1,4 @@
-package Ejercicio2;
+package ejercicio2;
 
 /**
  * La clase Directivo representa a un directivo, que es un tipo de empleado.

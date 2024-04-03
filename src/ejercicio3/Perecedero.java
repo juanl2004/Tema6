@@ -1,4 +1,4 @@
-package Ejercicio3;
+package ejercicio3;
 
 /**
  * La clase Perecedero representa un producto perecedero con nombre, precio y

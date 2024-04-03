@@ -1,4 +1,4 @@
-package Ejercicio2;
+package ejercicio2;
 
 /**
  * La clase Tecnico representa a un técnico, que es un tipo de operario.

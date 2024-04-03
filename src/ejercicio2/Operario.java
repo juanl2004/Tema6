@@ -1,4 +1,4 @@
-package Ejercicio2;
+package ejercicio2;
 
 /**
  * La clase Operario representa a un operario, que es un tipo de empleado.

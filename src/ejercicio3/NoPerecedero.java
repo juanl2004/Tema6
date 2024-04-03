@@ -1,4 +1,4 @@
-package Ejercicio3;
+package ejercicio3;
 
 /**
  * La clase NoPerecedero representa un producto no perecedero con nombre, precio
