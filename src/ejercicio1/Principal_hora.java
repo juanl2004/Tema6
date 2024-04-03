@@ -46,7 +46,7 @@ public class Principal_hora {
 
 		// Se crea un objeto de la clase HoraExacta con hora 10, minutos 59 y segundos
 		// 59.
-		HoraExacta horaExacta = new HoraExacta(10, 59, 59);
+		HoraExacta horaExacta = new HoraExacta(23, 59, 59);
 		// Se imprime la hora exacta actual.
 		System.out.println("Hora exacta actual: " + horaExacta);
 
