@@ -37,7 +37,7 @@ public class Perecedero extends Productos {
 	 * @param diasACaducar Los nuevos días a caducar del producto.
 	 */
 	public void setDiasACaducar(int diasACaducar) {
-		if (diasACaducar >= 0) {
+		if (diasACaducar > 0) {
 			this.diasACaducar = diasACaducar;
 		}
 	}
