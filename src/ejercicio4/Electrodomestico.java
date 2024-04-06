@@ -11,7 +11,7 @@ public class Electrodomestico {
 	 * Enumeración que nos muestra los colores disponibles para el electrodoméstico.
 	 */
 	enum colores {
-		blanco, negro, rojo, azul, gris
+		BLANCO, NEGRO, ROJO, AZUL, GRIS
 	}
 
 	/**
@@ -22,10 +22,10 @@ public class Electrodomestico {
 		A, B, C, D, E, F
 	}
 
-	protected double precioBase = 100; 
-	protected colores color = colores.blanco;
-	protected consumoEng consumo = consumoEng.F; 
-	protected double peso = 5; 
+	protected double precioBase = 100;
+	protected colores color = colores.BLANCO;
+	protected consumoEng consumo = consumoEng.F;
+	protected double peso = 5;
 
 	/**
 	 * Constructor sin parámetros.
@@ -57,27 +57,20 @@ public class Electrodomestico {
 	 * @param consumoEnergetico Consumo energético del electrodoméstico.
 	 * @param peso              Peso del electrodoméstico.
 	 */
-	public Electrodomestico(double precioBase, colores color, consumoEng consumoEnergetico, double peso) {
+	public Electrodomestico(double precioBase, String color, char consumo, double peso) {
 
-		if (precioBase > 0) {
-			this.precioBase = precioBase;
+		this(precioBase, peso);
+
+		if (color != null && (color.equals(colores.BLANCO.toString()) || color.equals(colores.NEGRO.toString())
+				|| color.equals(colores.ROJO.toString()) || color.equals(colores.AZUL.toString())
+				|| color.equals(colores.GRIS.toString()))) {
+			this.color = colores.valueOf(color.toUpperCase());
 		}
 
-		if (color != null && (color.equals(colores.blanco) || color.equals(colores.negro) || color.equals(colores.rojo)
-				|| color.equals(colores.azul) || color.equals(colores.gris))) {
-			this.color = color;
+		if ((consumo >= 'A' && consumo <= 'F')) {
+			this.consumo = consumoEng.valueOf(String.valueOf(consumo));
 		}
 
-		if (consumoEnergetico != null
-				&& (consumoEnergetico.equals(consumoEng.A) || consumoEnergetico.equals(consumoEng.B)
-						|| consumoEnergetico.equals(consumoEng.C) || consumoEnergetico.equals(consumoEng.D)
-						|| consumoEnergetico.equals(consumoEng.E) || consumoEnergetico.equals(consumoEng.F))) {
-			this.consumo = consumoEnergetico;
-		}
-
-		if (peso > 0) {
-			this.peso = peso;
-		}
 	}
 
 	/**
@@ -86,7 +79,7 @@ public class Electrodomestico {
 	 * @return El precio base del electrodoméstico.
 	 */
 	public double getPrecioBase() {
-		return precioBase;
+		return this.precioBase;
 	}
 
 	/**
@@ -94,8 +87,8 @@ public class Electrodomestico {
 	 * 
 	 * @return El color del electrodoméstico.
 	 */
-	public colores getColor() {
-		return color;
+	public String getColor() {
+		return String.valueOf(color);
 	}
 
 	/**
@@ -103,8 +96,8 @@ public class Electrodomestico {
 	 * 
 	 * @return El consumo energético del electrodoméstico.
 	 */
-	public consumoEng getConsumo() {
-		return consumo;
+	public char getConsumo() {
+		return String.valueOf(consumo).charAt(0);
 	}
 
 	/**
@@ -113,7 +106,7 @@ public class Electrodomestico {
 	 * @return El peso del electrodoméstico.
 	 */
 	public double getPeso() {
-		return peso;
+		return this.peso;
 	}
 
 	/**
@@ -122,16 +115,14 @@ public class Electrodomestico {
 	 * @param letra La letra que representa el consumo energético.
 	 */
 	private void comprobarConsumoEnergetico(char letra) {
-		boolean letraValida = false;
-		for (consumoEng ce : consumoEng.values()) {
-			if (Character.toUpperCase(letra) == ce.name().charAt(0)) {
-				this.consumo = ce;
-				letraValida = true;
-				break;
-			}
-		}
-		if (!letraValida) {
-			this.consumo = consumoEng.F; 
+		switch (letra) {
+		case 'A', 'B', 'C', 'D', 'E', 'F':
+			this.consumo = consumoEng.valueOf(String.valueOf(letra));
+			break;
+
+		default:
+			this.consumo = consumoEng.F;
+			break;
 		}
 	}
 
@@ -141,16 +132,15 @@ public class Electrodomestico {
 	 * @param color El color del electrodoméstico.
 	 */
 	private void comprobarColor(String color) {
-		boolean colorValido = false;
-		for (colores c : colores.values()) {
-			if (color.equalsIgnoreCase(c.name())) {
-				this.color = c;
-				colorValido = true;
-				break;
-			}
-		}
-		if (!colorValido) {
-			this.color = colores.blanco;
+		String colorMayus = color.toUpperCase();
+
+		switch (colorMayus) {
+		case "BLANCO", "NEGRO", "ROJO", "AZUL", "GRIS":
+			this.color = colores.valueOf(colorMayus);
+			break;
+		default:
+			this.color = colores.BLANCO;
+			break;
 		}
 	}
 

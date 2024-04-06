@@ -6,7 +6,7 @@ package ejercicio4;
  */
 public class Lavadora extends Electrodomestico {
 
-	private int carga = 5; 
+	private int carga = 5;
 
 	/**
 	 * Constructor que inicializa una lavadora con valores predeterminados.
@@ -28,13 +28,14 @@ public class Lavadora extends Electrodomestico {
 	/**
 	 * Constructor que inicializa todos los atributos de la lavadora.
 	 * 
-	 * @param carga      Carga de la lavadora.
+	 *
 	 * @param precioBase Precio base de la lavadora.
 	 * @param color      Color de la lavadora.
 	 * @param consumo    Consumo energético de la lavadora.
 	 * @param peso       Peso de la lavadora.
-	 */
-	public Lavadora(int carga, double precioBase, colores color, consumoEng consumo, double peso) {
+	 * @param carga      Carga de la lavadora.
+	 */ 
+	public Lavadora(double precioBase, String color, char consumo, double peso, int carga) {
 		super(precioBase, color, consumo, peso);
 		if (carga > 0) {
 			this.carga = carga;
@@ -61,7 +62,7 @@ public class Lavadora extends Electrodomestico {
 		double precioFinal = super.precioFinal();
 
 		if (carga > 30) {
-			precioFinal += 50; 
+			precioFinal += 50;
 		}
 
 		return precioFinal;

@@ -29,17 +29,18 @@ public class Television extends Electrodomestico {
 
 	/**
 	 * Constructor que inicializa todos los atributos del televisor.
-	 * 
-	 * @param resolucion      Resolución del televisor en pulgadas.
-	 * @param sintonizadorTDT Indica si el televisor tiene sintonizador TDT.
+	 *
 	 * @param precioBase      Precio base del televisor.
 	 * @param color           Color del televisor.
 	 * @param consumo         Consumo energético del televisor.
 	 * @param peso            Peso del televisor.
+	 * @param sintonizadorTDT Indica si el televisor tiene sintonizador TDT.
+	 * @param resolucion      Resolución del televisor en pulgadas.
 	 */
-	public Television(int resolucion, boolean sintonizadorTDT, double precioBase, colores color, consumoEng consumo,
-			double peso) {
+	public Television(double precioBase, String color, char consumo, double peso, boolean sintonizadorTDT,
+			int resolucion) {
 		super(precioBase, color, consumo, peso);
+
 		if (resolucion > 0) {
 			this.resolucion = resolucion;
 		}
