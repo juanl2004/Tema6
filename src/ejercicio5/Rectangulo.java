@@ -20,18 +20,17 @@ public class Rectangulo extends Poligono {
 	 * Constructor sin parametros de la clase Rectangulo.
 	 */
 	public Rectangulo() {
-
+		super(4);
 	}
 
 	/**
 	 * Constructor con parametros de la clase Rectangulo que inicializa los lados del rectángulo.
 	 *
-	 * @param numerosLados El número de lados del rectángulo (4).
 	 * @param lado1        La longitud del primer lado del rectángulo.
 	 * @param lado2        La longitud del segundo lado del rectángulo.
 	 */
-	public Rectangulo(int numerosLados, int lado1, int lado2) {
-		super(numerosLados);
+	public Rectangulo(int lado1, int lado2) {
+		super(4);
 
 		if (lado1 > 0) {
 			this.lado1 = lado1;

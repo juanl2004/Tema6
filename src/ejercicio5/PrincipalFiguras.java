@@ -2,17 +2,25 @@ package ejercicio5;
 
 import java.util.Scanner;
 
+/**
+ * Esta clase representa main que permite al usuario interactuar con los
+ * diferentes poligonos.
+ */
 public class PrincipalFiguras {
 
+	private static Scanner sc = new Scanner(System.in);
+	private static Lista lista = new Lista();
+
+	/**
+	 * Método principal.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
-
-		Poligono[] poligonos = new Poligono[10];
-
 		int opcion = 1;
-		int contador = 0;
 
+		// Se muestra el menú y con el switch elegimos las diferentes opciones.
 		while (opcion > 0 && opcion < 4) {
 			menu();
 			System.out.println();
@@ -21,15 +29,13 @@ public class PrincipalFiguras {
 
 			switch (opcion) {
 			case 1:
-				crearTriangulo(poligonos, contador, sc);
-				contador++;
+				crearTriangulo();
 				break;
 			case 2:
-				crearRectangulo(poligonos, contador, sc);
-				contador++;
+				crearRectangulo();
 				break;
 			case 3:
-				mostrarContenido(poligonos, contador);
+				lista.imprimirLista();
 				break;
 			case 4:
 				System.out.println("Saliendo...");
@@ -40,18 +46,24 @@ public class PrincipalFiguras {
 			}
 		}
 
+		// Cierre de Scanner
 		sc.close();
 	}
 
+	/**
+	 * Metodo que implementa el menú con las diferentes opciones.
+	 */
 	public static void menu() {
 		System.out.println("---------- MENU ---------");
 		System.out.println("1. Introducir triángulo");
 		System.out.println("2. Introducir rectángulo");
 		System.out.println("3. Mostrar contenido del array");
-
 	}
 
-	public static void crearTriangulo(Poligono[] poligonos, int contador, Scanner sc) {
+	/**
+	 * Metodo que permite al usuario crear un triángulo ingresando los lados.
+	 */
+	public static void crearTriangulo() {
 		System.out.println("Introduce los lados del triángulo:");
 		System.out.print("Lado 1: ");
 		int lado1 = sc.nextInt();
@@ -59,36 +71,19 @@ public class PrincipalFiguras {
 		int lado2 = sc.nextInt();
 		System.out.print("Lado 3: ");
 		int lado3 = sc.nextInt();
-		poligonos[contador] = new Triangulo(3, lado1, lado2, lado3);
+		lista.insertar(new Triangulo(lado1, lado2, lado3));
 	}
 
-	public static void crearRectangulo(Poligono[] poligonos, int contador, Scanner sc) {
+	/**
+	 * Metodo que permite al usuario crear un rectángulo ingresando los lados.
+	 */
+	public static void crearRectangulo() {
 		System.out.println("Introduce los lados del rectángulo:");
 		System.out.print("Lado 1: ");
 		int lado1 = sc.nextInt();
 		System.out.print("Lado 2: ");
 		int lado2 = sc.nextInt();
-		poligonos[contador] = new Rectangulo(4, lado1, lado2);
-	}
-
-	public static void mostrarContenido(Poligono[] poligonos, int contador) {
-		if (contador == 0) {
-			System.out.println("No hay figuras almacenadas en el array.");
-
-		} else {
-			System.out.println("Contenido del array:");
-			for (int i = 0; i < contador; i++) {
-				System.out.println(poligonos[i]);
-				if (poligonos[i] instanceof Triangulo) {
-					Triangulo triangulo = (Triangulo) poligonos[i];
-					System.out.println("Área del triángulo: " + triangulo.area());
-				} else if (poligonos[i] instanceof Rectangulo) {
-					Rectangulo rectangulo = (Rectangulo) poligonos[i];
-					System.out.println("Área del rectángulo: " + rectangulo.area());
-				}
-				System.out.println();
-			}
-		}
+		lista.insertar(new Rectangulo(lado1, lado2));
 	}
 
 }

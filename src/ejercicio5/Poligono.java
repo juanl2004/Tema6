@@ -25,7 +25,7 @@ public abstract class Poligono {
 	 * @param numerosLados El número de lados del polígono.
 	 */
 	public Poligono(int numerosLados) {
-		if (numerosLados > 0) {
+		if (numerosLados >= 1) {
 			this.numerosLados = numerosLados;
 		}
 	}

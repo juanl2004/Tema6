@@ -25,21 +25,20 @@ public class Triangulo extends Poligono {
 	 * Constructor sin parametros de la clase Triangulo.
 	 */
 	public Triangulo() {
-
+		super(3);
 	}
 
 	/**
 	 * Constructor con parametros de la clase Triangulo que inicializa los lados del
 	 * triangulo.
 	 * 
-	 * @param numerosLados El número de lados del triangulo (3).
 	 * @param lado1 La longitud del primer lado del triangulo.
 	 * @param lado2 La longitud del segundo lado del triangulo.
 	 * @param lado3 La longitud del tercer lado del triangulo.
 	 */
-	public Triangulo(int numerosLados, int lado1, int lado2, int lado3) {
+	public Triangulo(int lado1, int lado2, int lado3) {
 
-		super(numerosLados);
+		super(3);
 
 		if (lado1 > 0) {
 			this.lado1 = lado1;
@@ -113,7 +112,13 @@ public class Triangulo extends Poligono {
 			this.lado3 = lado3;
 		}
 	}
-
+	
+	/**
+	 * Devuelve una cadena indicando los lados del triangulo.
+	 *
+	 * @return Una cadena que representa el triangulo con sus lados.
+	 */
+	@Override
 	public String toString() {
 		return "Tipo Poligono --> Triangulo con: " + "Lado 1 = " + this.lado1 + ", Lado 2 = " + this.lado2
 				+ ", Lado 3 = " + this.lado3;
@@ -126,10 +131,10 @@ public class Triangulo extends Poligono {
 	 */
 	@Override
 	double area() {
-		double areaTriangulo = (this.lado1 + this.lado2 + this.lado3) / 2;
+		double semiPerimetro = (this.lado1 + this.lado2 + this.lado3) / 2;
 
-		return Math.sqrt(areaTriangulo * (areaTriangulo - this.lado1) * (areaTriangulo - this.lado2)
-				* (areaTriangulo - this.lado3));
+		return Math.sqrt(semiPerimetro * (semiPerimetro - this.lado1) * (semiPerimetro - this.lado2)
+				* (semiPerimetro - this.lado3));
 	}
 
 }
