@@ -8,15 +8,15 @@ public interface Animal {
     /**
      * Método que simula el acto de comer.
      */
-    void comer();
+    public void comer();
 
     /**
      * Método que simula el acto de dormir.
      */
-    void dormir();
+    public void dormir();
 
     /**
      * Método que simula el acto de hacer ruido.
      */
-    void hacerRuido();
+    public void hacerRuido();
 }

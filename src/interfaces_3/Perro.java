@@ -1,7 +1,5 @@
 package interfaces_3;
 
-import java.util.Random;
-
 /**
  * Clase que representa a un perro, que es un tipo de animal doméstico.
  */
@@ -10,41 +8,40 @@ public class Perro extends AnimalDomestico {
 	/**
 	 * Constructor con parametros de la clase Perro.
 	 * 
-	 * @param nombre El nombre del perro.
-	 * @param raza   La raza del perro.
-	 * @param peso   El peso del perro.
-	 * @param color  El color del perro.
+	 * @param nombre   El nombre del perro.
+	 * @param raza     La raza del perro.
+	 * @param peso     El peso del perro.
+	 * @param color    El color del perro.
+	 * @param vacunado Si el perro esta vacunado o no.
 	 */
-	public Perro(String nombre, String raza, double peso, String color) {
-		super(nombre, raza, peso, color);
+	public Perro(String nombre, String raza, double peso, String color, boolean vacunado) {
+		super(nombre, raza, peso, color, vacunado);
 	}
 
 	/**
-	 * Método para sacar a pasear al perro.
-	 */
-	public void sacarPaseo() {
-		System.out.println("Sacar a pasear a " + getNombre());
-	}
-
-	/**
-	 * Método para simular el ladrido de un perro.
-	 */
-	@Override
-	public void hacerRuido() {
-		System.out.println("Guau Guau");
-	}
-
-	/**
-	 * Método para simular el comportamiento de hacer caso de un perro.
+	 * Método que simula el comportamiento de hacer caso de un perro
 	 * 
-	 * @return true si el perro hace caso, false si no.
+	 * @return true si el perro hace caso.
+	 * 		   false si el perro no hace caso.
 	 */
 	@Override
 	public boolean hacerCaso() {
-		Random random = new Random();
-		int probabilidad;
-		probabilidad = random.nextInt(100);
-
-		return probabilidad < 90; // Devuelve true con una probabilidad del 90%.
+		return Math.random() * 100 <= 90;
 	}
+
+	/**
+	 * Método que simula el ladrido de un perro.
+	 */
+	@Override
+	public void hacerRuido() {
+		System.out.println(super.nombre + " ladra");
+	}
+
+	/**
+	 * Método para sacar a pasear el perro.
+	 */
+	public void sacarPaseo() {
+		System.out.println(super.nombre + " sale de paseo");
+	}
+
 }

@@ -5,7 +5,7 @@ package ejercicio4;
  * color, consumo energético y peso. Hay métodos para obtener estos atributos y
  * calcular el precio final del electrodoméstico.
  */
-public class Electrodomestico {
+public class Electrodomestico  implements Comparable<Electrodomestico>{
 
 	/**
 	 * Enumeración que nos muestra los colores disponibles para el electrodoméstico.
@@ -185,5 +185,11 @@ public class Electrodomestico {
 		}
 
 		return precioFinal;
+	}
+
+	@Override
+	public int compareTo(Electrodomestico otro) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

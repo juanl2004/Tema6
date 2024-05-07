@@ -86,7 +86,7 @@ public class Productos {
 		String productos = "";
 
 		productos += "Nombre: " + nombre;
-		productos += "Precio:" + precio;
+		productos += " Precio:" + precio;
 		return productos;
 	}
 

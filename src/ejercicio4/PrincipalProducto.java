@@ -22,8 +22,7 @@ public class PrincipalProducto {
 		double precioTotalElectrodomesticos = 0;
 		double precioTotalLavadoras = 0;
 		double precioTotalTelevisiones = 0;
-		double precioTotlaAspiradoras = -1;
-
+		
 		for (Electrodomestico electrodomestico : electrodomesticos) {
 			// Calculamos el precio final y mostrar los resultados.
 			double precioFinal = electrodomestico.precioFinal();
